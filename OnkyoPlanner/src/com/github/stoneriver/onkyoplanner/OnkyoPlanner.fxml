@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.stoneriver.onkyoplanner.OnkyoPlannerController">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="343.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="ファイル">
+            <items>
+                  <Menu fx:id="menuOpen" mnemonicParsing="false" text="開く" />
+                  <MenuItem fx:id="menuItemExport" mnemonicParsing="false" onAction="#onMenuItemExportAction" text="書き出し" />
+              <MenuItem mnemonicParsing="false" text="閉じる" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="ヘルプ">
+            <items>
+              <MenuItem mnemonicParsing="false" text="OnkyoPlannerについて" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="35.0" prefHeight="328.0" prefWidth="312.0">
+        <columns>
+          <TableColumn fx:id="columnEventNum" prefWidth="39.0" text="#" />
+          <TableColumn fx:id="columnEventName" prefWidth="185.0" text="イベント名" />
+            <TableColumn fx:id="columnEventStart" prefWidth="87.0" text="開始時点" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonGenerateEvent" layoutX="261.0" layoutY="377.0" mnemonicParsing="false" onAction="#generateNewEvent" text="生成" />
+      <TextField fx:id="fieldNewEventName" layoutX="14.0" layoutY="377.0" onAction="#generateNewEvent" promptText="イベント名" />
+      <TextField fx:id="fieldNewEventStart" layoutX="170.0" layoutY="377.0" onAction="#generateNewEvent" prefHeight="25.0" prefWidth="84.0" promptText="開始時点" />
+   </children>
+</Pane>
