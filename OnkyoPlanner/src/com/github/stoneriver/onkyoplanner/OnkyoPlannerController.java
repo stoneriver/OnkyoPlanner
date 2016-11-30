@@ -15,9 +15,11 @@
 package com.github.stoneriver.onkyoplanner;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -122,6 +124,7 @@ public class OnkyoPlannerController implements Initializable {
 	
 	//クラス関数
 	private void loadPlan(String property) {
+		initializeEventList();
 		try {
 			file = new File(property);
 			plan = new Plan(property, false);
@@ -138,7 +141,7 @@ public class OnkyoPlannerController implements Initializable {
 				fieldNewEventName,
 				fieldNewEventStart,
 				buttonGenerateEvent
-			};
+		};
 		return result;
 	}
 	
@@ -177,7 +180,17 @@ public class OnkyoPlannerController implements Initializable {
 	
 	@FXML
 	private void onMenuItemExportAction() {
+		InputStream iStream = null;
 		Properties p = new Properties();
+		try {
+			iStream = new FileInputStream(file);
+			p.load(iStream);
+		} catch (FileNotFoundException e2) {
+			e2.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		p.setProperty("eventCount", String.valueOf(eventList.size())); //$NON-NLS-1$
 		for (int i = 0; i < eventList.size(); i++) {
 			Event e = eventList.get(i);
@@ -208,7 +221,6 @@ public class OnkyoPlannerController implements Initializable {
 		a.setContentText(Messages.getString("OnkyoPlannerController.ExportSuccessContentText1") //$NON-NLS-1$
 				+ Messages.getString("OnkyoPlannerController.ExportSuccessContentText2") + file.getName()); //$NON-NLS-1$
 		a.show();
-		
 		
 	}
 	
