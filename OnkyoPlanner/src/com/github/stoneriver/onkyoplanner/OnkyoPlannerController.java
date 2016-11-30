@@ -76,6 +76,8 @@ public class OnkyoPlannerController implements Initializable {
 	private Menu menuOpen;
 	private MenuItem menuItemUpdate;
 	private MenuItem menuItemNew;
+	@FXML
+	private MenuItem menuItemAbout;
 	
 	//関数宣言
 	//初期化関数
@@ -247,6 +249,16 @@ public class OnkyoPlannerController implements Initializable {
 		menuOpen.getItems().add(menuItemNew);
 		menuOpen.getItems().add(menuItemUpdate);
 	}
-
+	
+	@FXML
+	private void onMenuItemAboutAction() {
+		Alert a = new Alert(AlertType.INFORMATION);
+		a.setHeaderText("OnkyoPlannerについて");
+		a.setContentText("Version: Release1.0\n"
+				+ "Author: stoneriver\n"
+				+ "\n"
+				+ "© 2016 stoneriver");
+		a.show();
+	}
 	
 }

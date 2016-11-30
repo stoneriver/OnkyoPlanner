@@ -18,7 +18,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="ヘルプ">
             <items>
-              <MenuItem mnemonicParsing="false" text="OnkyoPlannerについて" />
+              <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="OnkyoPlannerについて" />
             </items>
           </Menu>
         </menus>

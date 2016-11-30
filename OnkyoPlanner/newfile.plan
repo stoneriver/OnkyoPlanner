@@ -1,2 +1,6 @@
-#Tue Nov 29 21:41:46 JST 2016
-eventCount=0
+#Wed Nov 30 20:21:10 JST 2016
+event1Start=0
+event0Start=0
+event1Name=abc.mp3
+eventCount=2
+event0Name=null
