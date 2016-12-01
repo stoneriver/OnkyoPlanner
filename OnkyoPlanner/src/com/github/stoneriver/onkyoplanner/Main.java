@@ -24,9 +24,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Pane root = (Pane) FXMLLoader.load(getClass().getResource("OnkyoPlanner.fxml"));
+			Pane root = (Pane) FXMLLoader.load(getClass().getResource("OnkyoPlanner.fxml")); //$NON-NLS-1$
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(Messages.getString("Main.Version")); //$NON-NLS-1$
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

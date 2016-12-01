@@ -265,11 +265,11 @@ public class OnkyoPlannerController implements Initializable {
 	@FXML
 	private void onMenuItemAboutAction() {
 		Alert a = new Alert(AlertType.INFORMATION);
-		a.setHeaderText("OnkyoPlannerについて");
-		a.setContentText("Version: Release1.0\n"
-				+ "Author: stoneriver\n"
-				+ "\n"
-				+ "© 2016 stoneriver");
+		a.setHeaderText(Messages.getString("OnkyoPlannerController.About0")); //$NON-NLS-1$
+		a.setContentText(Messages.getString("Main.Version") + "\n" //$NON-NLS-1$ //$NON-NLS-2$
+				+ Messages.getString("OnkyoPlannerController.About1") //$NON-NLS-1$
+				+ Messages.getString("OnkyoPlannerController.About2") //$NON-NLS-1$
+				+ Messages.getString("OnkyoPlannerController.About3")); //$NON-NLS-1$
 		a.show();
 	}
 	
