@@ -40,6 +40,7 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -112,6 +113,11 @@ public class OnkyoPlannerController implements Initializable {
 		columnEventNum.setCellValueFactory(new PropertyValueFactory<>("Num")); //$NON-NLS-1$
 		columnEventName.setCellValueFactory(new PropertyValueFactory<>("Name")); //$NON-NLS-1$
 		columnEventName.setCellFactory(TextFieldTableCell.<Event> forTableColumn());
+		columnEventName.setOnEditCommit((CellEditEvent<Event, String> t) -> {
+			((Event) t.getTableView().getItems().get(
+					t.getTablePosition().getRow())
+					).setName(t.getNewValue());
+		});
 		columnEventStart.setCellValueFactory(new PropertyValueFactory<>("Start")); //$NON-NLS-1$
 		tableView.setItems(eventList);
 		tableView.setEditable(true);
